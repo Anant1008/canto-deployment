@@ -5,7 +5,7 @@ services:
     ports:
       - "2550:2550"
     volumes:
-      - ./lib/datasets/:/root/datasets/
+      - /home/anant/Desktop/TOSCA_Projects/modified-CANTO/lib/datasets/:/root/datasets/
     environment:
       CLUSTER_PORT: 2550
       CLUSTER_IP: master
