@@ -1,7 +1,7 @@
 version: "3.3"
 services:
   master:
-    image: anant1008/canto-desktop
+    image: canto-desktop
     ports:
       - "2550:2550"
     volumes:
@@ -20,7 +20,7 @@ services:
     command: ["java", "-jar", "/app.jar", "master", "2550"]
 
   worker1:
-    image: anant1008/canto
+    image: canto
     ports:
       - "2552:2552"
     environment:
@@ -37,7 +37,7 @@ services:
     command: ["java", "-jar", "/app.jar", "worker", "2552"]
 
   worker2:
-    image: anant1008/canto
+    image: canto
     ports:
       - "2534:2534"
     environment:
@@ -54,7 +54,7 @@ services:
     command: ["java", "-jar", "/app.jar", "worker", "2534"]
 
   worker3:
-    image: anant1008/canto
+    image: canto
     ports:
       - "2553:2553"
     environment:
