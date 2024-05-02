@@ -42,14 +42,14 @@ public class MainMaster {
         ExecutionContext ec = system.dispatcher();
         
         // DataSet trainingSet = DataSet.createFromFile("/root/datasets/iris_train.csv", 4, 1, ",");
-		DataSet trainingSet = DataSet.createFromFile("/root/datasets/train_data.csv", 512, 1, ",");
+		DataSet trainingSet = DataSet.createFromFile("/root/datasets/data.csv", 512, 1, ",");
 		// DataSet testSet = DataSet.createFromFile("/root/datasets/iris_test.csv", 4, 1, ",");
-		DataSet testSet = DataSet.createFromFile("/root/datasets/test_data.csv", 512, 1, ",");
+		DataSet testSet = DataSet.createFromFile("/root/datasets/data.csv", 512, 1, ",");
 
 		System.out.println("Dataset inited: " + trainingSet.size());
 		System.out.println("Dataset inited: " + testSet.size());
         
-		ArrayList<Integer> layerDimensions = new ArrayList<>(List.of(100, 100, 100, 100, 5));
+		ArrayList<Integer> layerDimensions = new ArrayList<>(List.of(512, 512, 512, 512, 8));
 		// Sigmoid sigmoid = new Sigmoid();		
 		RectifiedLinear rl  = new RectifiedLinear();
 
@@ -66,7 +66,7 @@ public class MainMaster {
 
 		// Forest fire dataset: http://www3.dsi.uminho.pt/pcortez/forestfires/
 		// system.scheduler().scheduleOnce(interval, master, new NNJobMessage("iris_task", trainingSet, testSet, 25, 25, rl, layerDimensions, "sgd", 0.1, 100), system.dispatcher(), null);
-				system.scheduler().scheduleOnce(interval, master, new NNJobMessage("human_detection_task", trainingSet, testSet, 4000, 4000, rl, layerDimensions, "sgd", 0.1, 1000), system.dispatcher(), null);
+				system.scheduler().scheduleOnce(interval, master, new NNJobMessage("human_detection_task", trainingSet, testSet, 1000, 1000, rl, layerDimensions, "sgd", 0.1, 500), system.dispatcher(), null);
 
 		//system.scheduler().scheduleOnce(interval, master, new NNJobMessage("wine_task", trainingSet, testSet, 75, 75, rl, layerDimensions, "sgd", 0.1, 100), system.dispatcher(), null);
 		// system.scheduler().scheduleOnce(interval, master, new NNJobMessage("iris_task", trainingSet, testSet, 75, 75, rl, layerDimensions, "admm", 1), system.dispatcher(), null);

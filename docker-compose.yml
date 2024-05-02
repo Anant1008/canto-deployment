@@ -17,6 +17,7 @@ services:
       replicas: 1
       placement:
         constraints: [node.hostname == anant-X510U]
+        # constraints: [node.address == 192.168.1.68]
     command: ["java", "-jar", "/app.jar", "master", "2550"]
 
   worker1:
@@ -34,6 +35,7 @@ services:
       replicas: 1
       placement:
         constraints: [node.hostname == raspi-11]
+        # constraints: [node.address == 192.168.1.233]
     command: ["java", "-jar", "/app.jar", "worker", "2552"]
 
   worker2:
@@ -51,6 +53,7 @@ services:
       replicas: 1
       placement:
         constraints: [node.hostname == pi]
+        # constraints: [node.address == 192.168.1.204]
     command: ["java", "-jar", "/app.jar", "worker", "2534"]
 
   worker3:
@@ -68,4 +71,5 @@ services:
       replicas: 1
       placement:
         constraints: [node.hostname == raspberrypi-18]
+        # constraints: [node.address == 192.168.1.18]
     command: ["java", "-jar", "/app.jar", "worker", "2553"]
