@@ -16,7 +16,7 @@ services:
     deploy:
       replicas: 1
       placement:
-        constraints: [node.hostname == pi]
+        constraints: [node.hostname == raspberrypi-18]
     command: ["java", "-jar", "/app.jar", "master", "2550"]
 
   worker1:
@@ -67,5 +67,5 @@ services:
     deploy:
       replicas: 1
       placement:
-        constraints: [node.hostname == raspberrypi-18]
+        constraints: [node.hostname == pi]
     command: ["java", "-jar", "/app.jar", "worker", "2553"]
