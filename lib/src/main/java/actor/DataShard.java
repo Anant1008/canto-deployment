@@ -152,7 +152,7 @@ public class DataShard extends AbstractActor {
 	 
 	public void fetchWeights(NNOperationTypes.WeightUpdate msg) throws TimeoutException, InterruptedException {
 	//	System.out.println("DS actor fetching current weights");
-		Timeout timeout = Timeout.create(Duration.ofSeconds(5));
+		Timeout timeout = Timeout.create(Duration.ofSeconds(3600));
 		
 		for(ActorRef l: layerRefs) {
 			//l.tell(new NNOperationTypes.ParameterRequest(), self());

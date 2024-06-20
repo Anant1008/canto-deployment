@@ -76,7 +76,8 @@ public class NNLayer extends AbstractActor {
 	}
 	
 	public void weightsRequest(NNOperationTypes.ParameterRequest paramReq) throws TimeoutException, InterruptedException {
-		Timeout timeout = Timeout.create(Duration.ofSeconds(3));
+		// Timeout timeout = Timeout.create(Duration.ofSeconds(3));
+		Timeout timeout = Timeout.create(Duration.ofSeconds(3600));
 		Future<Object> future = Patterns.ask(psShardRef, paramReq, timeout);
 		String result = (String) Await.result(future, timeout.duration());
 		//System.out.println(result);
@@ -116,7 +117,8 @@ public class NNLayer extends AbstractActor {
 
 		// Update and request weights for the current layer
 		// psShardRef.tell(req, getSelf());
-		Timeout timeout = Timeout.create(Duration.ofSeconds(3));
+		// Timeout timeout = Timeout.create(Duration.ofSeconds(3));
+		Timeout timeout = Timeout.create(Duration.ofSeconds(3600));
 		Future<Object> future = Patterns.ask(psShardRef, req, timeout);
 		String result = (String) Await.result(future, timeout.duration());
 		layerWeights = (Basic2DMatrix) Matrix.fromCSV(result);

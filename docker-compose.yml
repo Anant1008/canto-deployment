@@ -1,7 +1,7 @@
 version: "3.3"
 services:
   master:
-    image: canto-desktop
+    image: anant1008/canto
     ports:
       - "2550:2550"
     volumes:
@@ -16,12 +16,11 @@ services:
     deploy:
       replicas: 1
       placement:
-        constraints: [node.hostname == anant-X510U]
-        # constraints: [node.address == 192.168.1.68]
+        constraints: [node.hostname == raspberrypi-18]
     command: ["java", "-jar", "/app.jar", "master", "2550"]
 
   worker1:
-    image: canto
+    image:  anant1008/canto
     ports:
       - "2552:2552"
     environment:
@@ -34,12 +33,11 @@ services:
     deploy:
       replicas: 1
       placement:
-        constraints: [node.hostname == raspi-11]
-        # constraints: [node.address == 192.168.1.233]
+        constraints: [node.hostname == raspberrypi]
     command: ["java", "-jar", "/app.jar", "worker", "2552"]
 
   worker2:
-    image: canto
+    image:  anant1008/canto
     ports:
       - "2534:2534"
     environment:
@@ -52,12 +50,11 @@ services:
     deploy:
       replicas: 1
       placement:
-        constraints: [node.hostname == pi]
-        # constraints: [node.address == 192.168.1.204]
+        constraints: [node.hostname == raspi-11]
     command: ["java", "-jar", "/app.jar", "worker", "2534"]
 
   worker3:
-    image: canto
+    image:  anant1008/canto
     ports:
       - "2553:2553"
     environment:
@@ -70,6 +67,5 @@ services:
     deploy:
       replicas: 1
       placement:
-        constraints: [node.hostname == raspberrypi-18]
-        # constraints: [node.address == 192.168.1.18]
+        constraints: [node.hostname == pi]
     command: ["java", "-jar", "/app.jar", "worker", "2553"]

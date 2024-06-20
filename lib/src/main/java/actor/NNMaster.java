@@ -107,7 +107,8 @@ public class NNMaster extends AbstractActor {
 		}
 		
 		// Send dataset part, psRefs, activation to each routee
-		Timeout timeout = Timeout.create(Duration.ofSeconds(60));
+		// Timeout timeout = Timeout.create(Duration.ofSeconds(60));
+		Timeout timeout = Timeout.create(Duration.ofSeconds(3600));
 		int c = 0;
 		int lastLayerNeurons = nnmsg.getLayerDimensions().get(n-1);
 

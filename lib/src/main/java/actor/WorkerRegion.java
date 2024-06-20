@@ -49,7 +49,8 @@ public class WorkerRegion extends AbstractActor{
     }
 	 
 	private void registerRegionToMaster() {
-		Duration timeout = Duration.ofSeconds(5);
+		// Duration timeout = Duration.ofSeconds(5);
+        Duration timeout = Duration.ofSeconds(3600);
 		
 		selfAddress = getContext().provider().getDefaultAddress();
         System.out.println("Create table entry for: " + selfAddress.getHost().get());
