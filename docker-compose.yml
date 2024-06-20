@@ -1,7 +1,7 @@
 version: "3.3"
 services:
   master:
-    image: anant1008/canto
+    image: anant1008/canto-desktop
     ports:
       - "2550:2550"
     volumes:
@@ -16,7 +16,7 @@ services:
     deploy:
       replicas: 1
       placement:
-        constraints: [node.hostname == raspberrypi-18]
+        constraints: [node.hostname == anant-X510U]
     command: ["java", "-jar", "/app.jar", "master", "2550"]
 
   worker1:
